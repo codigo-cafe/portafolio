@@ -1,0 +1,30 @@
+footer {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.content {
+	padding: 4rem;
+	background-color: #272727;
+	margin: auto;
+}
+
+.footer-list .footer-links {
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-item a {
+	text-decoration: none;
+	color: #EDF0F1;
+	padding: 0 2rem 0 2rem;
+	transition: all 0.3s ease 0s;
+}
+
+.footer-copyright {
+	color: #EDF0F1;
+	text-align: center;
+	padding-top: 1rem;
+}
