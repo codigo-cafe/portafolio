@@ -15,7 +15,7 @@
 body {
 	font-family: 'Raleway', Arial, sans-serif;
 	background-color: var(--bs-dark);
-	line-height: normal;
+	line-height: 1.5;
 }
 
 a.logo {
@@ -62,10 +62,6 @@ header {
 	width: 100%;
 }
 
-.container {
-	margin: auto;
-}
-
 .page-header {
 	position: relative;
 	width: 100%;
@@ -99,7 +95,7 @@ header {
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
-	text-align: right;
+	text-align: center;
 	padding: 4rem;
 }
 
@@ -117,8 +113,36 @@ button:hover {
 }
 
 h1.title, h2.title, p.description {
-	padding: 1rem;
 	color: var(--bs-light);
+	opacity: 0.8;
+}
+
+p.description {
+	color: var(--bs-ligh);
+	opacity: 0.8;
+}
+
+.separator-container {
+  text-align: center;
+  position: relative;
+}
+.separator-container .separator {
+  color: #c5a47e;
+  margin: 0 auto 1em;
+  width: 11em;
+}
+.separator-container .separator.line-separator:before, .separator-container .separator.line-separator:after {
+  display: block;
+  width: 40%;
+  content: " ";
+  margin-top: 11px;
+  border: 1px solid #c5a47e;
+}
+.separator-container .separator.line-separator:before {
+  float: left;
+}
+.separator-container .separator.line-separator:after {
+  float: right;
 }
 
 .text-cafe {
