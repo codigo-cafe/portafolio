@@ -12,6 +12,10 @@
 	box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Raleway', Arial, sans-serif;
 	background-color: var(--bs-dark);
@@ -25,21 +29,45 @@ a.logo {
 	text-decoration: none;
 }
 
-li, button {
+li, button, a {
 	font-weight: 500;
 	font-size: 16px;
 	color: var(--bs-light);
 	text-decoration: none;
 }
 
-header {
+.navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 30px 17%;
 	background-color: transparent;
-	position: absolute;
+	position: fixed;
 	z-index: 3 !important;
+	transition: all 0.3s ease-out;
+}
+
+.navbar-fixed {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 17%;
+	background-color: var(--bs-light);
+	color: var(--bs-dark) !important;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 3 !important;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	transition: all 0.5s ease;
+}
+
+header.navbar-fixed .logo {
+	color: #272727;
+}
+
+header.navbar .logo {
+	color: #ffffff;
 }
 
 .logo {
@@ -374,7 +402,15 @@ Pantallas grandes (desktops de menos de 1200px)
 	}
 
 	.form-contact {
-   	padding: 2rem !important;
+   	padding: 1rem !important;
    	margin: auto !important;
+	}
+
+	header.nav-active .nav__list-item a {
+    font-size: 26px !important;
+	}
+
+	.progress {
+    margin: 0 10px 20px 10px !important;
 	}
 }

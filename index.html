@@ -23,19 +23,19 @@
 		<div class="overlay second"></div>
 		<div class="overlay third"></div>
 	</div>
-	<header>
+	<header class="navbar" id="navbar">
 		<a href="#" class="logo">Logo</a>
 		<div class="nav">
 			<div class="nav__content">
 				<ul class="nav__list">
 					<li class="nav__list-item">
-						<a href="#">Perfil</a>
+						<a href="#perfil" id="sectionPerfil">Perfil</a>
 					</li>
 					<li class="nav__list-item">
-						<a href="#">Proyectos</a>
+						<a href="#trabajos" id="sectionTrabajos">Trabajos</a>
 					</li>
 					<li class="nav__list-item">
-						<a href="#">Contacto</a>
+						<a href="#contacto" id="sectionContacto">Contacto</a>
 					</li>
 					<li class="nav__list-item nav-icon">
 						<a href="#">
@@ -66,13 +66,13 @@
 		<div class="container">
 			<div class="info-header">
 				<h1 class="title">MIGUEL ÁNGEL CHOQUE RAMÍREZ</h1>
-				<h4 class="description py-2">Desarrollador web Full-Stack</h4>
-				<button class="btn-cafe btn-link">Contáctame <i class="ri-briefcase-4-fill"></i></button>
+				<h4 class="description py-4">Desarrollador web Full-Stack</h4>
+				<a href="#contacto" class="btn-cafe btn-link">Contáctame <i class="ri-briefcase-4-fill"></i></a>
 			</div>
 		</div>
 	</div>
 	<main>
-		<div class="container ease-animation">
+		<section class="container ease-animation" id="perfil">
 			<div class="info">
 				<h2 class="title">Desarrollador Web <span class="text-cafe">Full Stack</span></h2>
 				<div class="separator-container">
@@ -121,8 +121,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">
+		</section>
+		<section class="container" id="habilidades">
 			<div class="info">
 				<h2 class="title">Mis <span class="text-cafe">Habilidades</span></h2>
 				<div class="separator-container">
@@ -161,15 +161,15 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div class="container">
+		</section>
+		<section class="container" id="trabajos">
 			<div class="info">
 				<h2 class="title">Mis <span class="text-cafe">Trabajos</span></h2>
 				<div class="separator-container">
 					<div class="separator line-separator">♦</div>
 				</div>
 			</div>
-		</div>
+		</section>
 		<div class="section grid c4">
 			<figure class="hover-zoom scroll-animation">
 				<img src="assets/img/houses_1.jpg" alt="sample64"/>
@@ -216,7 +216,7 @@
 				<a href="#"></a>
 			</figure>
 		</div>
-		<div class="container">
+		<section class="container" id="contacto">
 			<div class="info">
 				<h2 class="title"><span class="text-cafe">Contáctame</span></h2>
 				<div class="separator-container">
@@ -238,14 +238,14 @@
 						<textarea rows="8" name="message" id="message" placeholder="Cuéntame sobre el proyecto que tienes en mente." required=""></textarea>
 						<input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
 						<div class="form-submit">
-							<button type="submit" class="btn-cafe btn-link">Enviar mensaje <i class="ri-send-plane-fill"></i></button>
+							<button type="submit" class="btn-cafe btn-link">Enviar <span class="d-none-lg">mensaje</span> <i class="ri-send-plane-fill"></i></button>
 							<p>O escríbeme al whatsapp</p>
-							<button type="button" class="btn-cafe btn-link btn-outline">Whatsapp <i class="ri-whatsapp-line"></i></button>
+							<a href="https://wa.link/03vhd3" class="btn-cafe btn-link btn-outline">Whatsapp <i class="ri-whatsapp-line"></i></a>
 						</div>
 					</div>
 				</form>
 			</div>
-		</div>
+		</section>
 	</main>
 	<footer>
 		<div class="content">
@@ -281,7 +281,8 @@
 					<script>
 						document.write(new Date().getFullYear() + " ");
 					</script> -
-					<span class="text-cafe">Miguel Ángel Choque Ramírez</span>
+					<span class="text-cafe">Miguel Ángel Choque Ramírez</span><br>
+					<span class="pt-4">Tarija - Bolivia</span>
 				</div>
 			</div>
 		</div>
@@ -376,6 +377,34 @@
 					initial: [0.1,-0.1],
 					depth : 0.8
 				});
+
+				const navbar = document.getElementById('navbar')
+
+				const onScroll = () => {
+
+					const scroll = document.documentElement.scrollTop
+
+					if (scroll > 150) {
+						navbar.classList.remove("navbar")
+						navbar.classList.add("navbar-fixed");
+					} else {
+						navbar.classList.remove("navbar-fixed")
+						navbar.classList.add("navbar");
+					}
+				}
+
+				window.addEventListener('scroll', onScroll)
+
+
+
+				const enlaces = document.querySelectorAll('ul li a[id]')
+				enlaces.forEach(current =>{
+			        enlaceId = current.getAttribute('id')
+			        document.getElementById(enlaceId).addEventListener("click", closeNavbar);
+			    })
+			    function closeNavbar() {
+			    	navbar.classList.remove("nav-active")
+			    }
 			} catch(e) {
 				document.getElementById('skillsCanvas').style.display = 'none';
 			}
